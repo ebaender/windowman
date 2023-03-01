@@ -9,7 +9,7 @@ Initialize()
     if (A_ScreenHeight <= 1080)
     {
         global Width := 1280
-        global Height := 800
+        global Height := 880
         global WidthMaximized := 1880
         global HeightMaximized := 1000
     }
