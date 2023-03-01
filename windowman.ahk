@@ -13,6 +13,7 @@ return
 !+`:: ToggleMinimized("A")
 !^`:: ToggleMaximized("A")
 
+~!Tab:: UnlockMinimize()
 ~Alt Up:: MinimizeAllExceptActive()
 
-; ~^s:: Reload
+~^s:: Reload
