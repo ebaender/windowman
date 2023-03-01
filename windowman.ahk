@@ -1,7 +1,7 @@
-#Include centerpunch.ahk
+#Include magnet.ahk
 #Include deck.ahk
 
-~^\:: Reload
+~^s:: Reload
 
 InitializeDisplayValues()
 return
@@ -13,4 +13,4 @@ return
 !+`:: ToggleMinimized("A")
 !^`:: ToggleMaximized("A")
 
-~Alt Up:: MinimizeAllExceptActiveWindow()
+~Alt Up:: MinimizeAllExceptActive()

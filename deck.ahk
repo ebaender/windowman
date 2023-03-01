@@ -2,7 +2,7 @@ DebugOutput := false
 Delay := 50
 IgnoredWindowClasses := "(Progman|Windows.UI.Core.CoreWindow|XamlExplorerHostIslandWindow)"
 
-MinimizeAllExceptActiveWindow()
+MinimizeAllExceptActive()
 {
     Sleep(Delay)
     WindowList := WinGetList(, , ,)
@@ -12,7 +12,7 @@ MinimizeAllExceptActiveWindow()
     {
         WindowTitle := WinGetTitle(Window)
         WindowID := WinGetID(Window)
-        if (WindowTitle != "" and WindowID != LastActiveWindowID and WinExist(Window))
+        if (WindowTitle != "" and (WinExist(LastActiveWindowID) and WindowID != LastActiveWindowID) and WinExist(Window))
         {
             WindowClass := WinGetClass(Window)
             MatchResult := RegExMatch(WindowClass, IgnoredWindowClasses)

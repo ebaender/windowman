@@ -37,7 +37,6 @@ TransformAndCenter(WinTitle, NewWidth := 0, NewHeight := 0)
         }
         X := (A_ScreenWidth / 2) - (Width / 2)
         Y := (A_ScreenHeight / 2) - (Height / 2)
-        WinRestore WinTitle
         WinMove X, Y - TaskbarHeight, Width, Height, WinTitle
     }
 }
