@@ -1,4 +1,3 @@
-~^s:: Reload
 DebugOutput := false
 Delay := 50
 IgnoredWindowClasses := "(Progman|Windows.UI.Core.CoreWindow|XamlExplorerHostIslandWindow)"
@@ -30,5 +29,3 @@ MinimizeAllExceptActiveWindow()
         MsgBox(DebugMessage)
     }
 }
-
-~Alt Up:: MinimizeAllExceptActiveWindow()

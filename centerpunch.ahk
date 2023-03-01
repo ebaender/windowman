@@ -4,7 +4,7 @@ WidthMaximized := 1328
 HeightMaximized := 704
 TaskbarHeight := 24
 
-Initialize()
+InitializeDisplayValues()
 {
     if (A_ScreenHeight <= 1080)
     {
@@ -73,13 +73,3 @@ ToggleMinimized(WinTitle)
         }
     }
 }
-
-Initialize()
-return
-
-!Esc:: TransformAndCenter("A", , ,)
-!+Esc:: TransformAndCenter("A", Width, Height,)
-!^Esc:: TransformAndCenter("A", WidthMaximized, HeightMaximized,)
-!`:: WinClose "A"
-!+`:: ToggleMinimized("A")
-!^`:: ToggleMaximized("A")
