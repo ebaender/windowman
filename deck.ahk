@@ -1,10 +1,10 @@
-DebugOutput := false
-Delay := 50
-IgnoredWindowClasses := "(Progman|Windows.UI.Core.CoreWindow|XamlExplorerHostIslandWindow)"
+DeckDebugOutput := false
+DeckDelay := 50
+DeckIgnoredWindowClasses := "(Progman|Windows.UI.Core.CoreWindow|XamlExplorerHostIslandWindow|ApplicationFrameWindow)"
 
 MinimizeAllExceptActive()
 {
-    Sleep(Delay)
+    Sleep(DeckDelay)
     WindowList := WinGetList(, , ,)
     LastActiveWindowID := WinGetID("A")
     DebugMessage := "filtered windows`n`n"
@@ -12,10 +12,14 @@ MinimizeAllExceptActive()
     {
         WindowTitle := WinGetTitle(Window)
         WindowID := WinGetID(Window)
-        if (WindowTitle != "" and (WinExist(LastActiveWindowID) and WindowID != LastActiveWindowID) and WinExist(Window))
+        WindowUID := WinExist(Window)
+        if (DllCall("IsWindowVisible", "Ptr", WindowUID) and
+            WindowUID and
+            WindowTitle != "" and
+            (WinExist(LastActiveWindowID) and WindowID != LastActiveWindowID))
         {
             WindowClass := WinGetClass(Window)
-            MatchResult := RegExMatch(WindowClass, IgnoredWindowClasses)
+            MatchResult := RegExMatch(WindowClass, DeckIgnoredWindowClasses)
             if (MatchResult = 0)
             {
                 WinMinimize(Window)
@@ -23,8 +27,11 @@ MinimizeAllExceptActive()
             DebugMessage := DebugMessage MatchResult " / " WindowClass " / " WindowTitle "`n`n"
         }
     }
-    DebugMessage := DebugMessage "`nlast active window`n`n" WinGetTitle(LastActiveWindowID)
-    if (DebugOutput)
+    if (WinExist(LastActiveWindowID))
+    {
+        DebugMessage := DebugMessage "`nlast active window`n`n" WinGetTitle(LastActiveWindowID)
+    }
+    if (DeckDebugOutput)
     {
         MsgBox(DebugMessage)
     }

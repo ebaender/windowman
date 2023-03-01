@@ -37,7 +37,13 @@ TransformAndCenter(WinTitle, NewWidth := 0, NewHeight := 0)
         }
         X := (A_ScreenWidth / 2) - (Width / 2)
         Y := (A_ScreenHeight / 2) - (Height / 2)
+        WinID := WinGetID(WinTitle)
+        WinHide(WinID)
+        Sleep 100
         WinMove X, Y - TaskbarHeight, Width, Height, WinTitle
+        WinMinimize(WinID)
+        Sleep 100
+        WinActivate(WinID)
     }
 }
 

@@ -1,7 +1,7 @@
 #Include magnet.ahk
 #Include deck.ahk
 
-~^s:: Reload
+DetectHiddenWindows True
 
 InitializeDisplayValues()
 return
@@ -14,3 +14,5 @@ return
 !^`:: ToggleMaximized("A")
 
 ~Alt Up:: MinimizeAllExceptActive()
+
+; ~^s:: Reload
