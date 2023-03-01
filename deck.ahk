@@ -18,7 +18,8 @@ MinimizeAllExceptActive()
     Sleep(DeckDelay)
     WindowList := WinGetList(, , ,)
     LastActiveWindowID := WinGetID("A")
-    if (DeckDebugOutput) DebugMessage := "filtered windows`n`n"
+    if (DeckDebugOutput)
+        DebugMessage := "filtered windows`n`n"
 
     for Window in WindowList
     {
@@ -37,7 +38,8 @@ MinimizeAllExceptActive()
             {
                 WinMinimize(Window)
             }
-            if (DeckDebugOutput) DebugMessage := DebugMessage MatchResult " / " WindowClass " / " WindowTitle "`n`n"
+            if (DeckDebugOutput)
+                DebugMessage := DebugMessage MatchResult " / " WindowClass " / " WindowTitle "`n`n"
         }
     }
 
