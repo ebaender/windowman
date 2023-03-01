@@ -1,11 +1,35 @@
-﻿TransformAndCenter(WinTitle, NewWidth := 0, NewHeight := 0, TaskbarHeight := 24)
+﻿Width := 1000
+Height := 600
+WidthMaximized := 1328
+HeightMaximized := 704
+TaskbarHeight := 24
+
+Initialize()
+{
+    if (A_ScreenHeight <= 1080)
+    {
+        global Width := 1280
+        global Height := 800
+        global WidthMaximized := 1880
+        global HeightMaximized := 1000
+    }
+    else if (A_ScreenHeight <= 1440)
+    {
+        global Width := 1440
+        global Height := 960
+        global WidthMaximized := 2528
+        global HeightMaximized := 1360
+    }
+}
+
+TransformAndCenter(WinTitle, NewWidth := 0, NewHeight := 0)
 {
     if (WinExist(WinTitle))
     {
         WinGetPos &X, &Y, &Width, &Height, WinTitle
         if (NewWidth != 0)
         {
-            Width := NewWidth 
+            Width := NewWidth
         }
         if (NewHeight != 0)
         {
@@ -50,9 +74,12 @@ ToggleMinimized(WinTitle)
     }
 }
 
-!Esc::TransformAndCenter("A",,,)
-!+Esc::TransformAndCenter("A", 1440, 960,)
-!^Esc::TransformAndCenter("A", 1880, 1000,)
-!`::WinClose "A"
-!+`::ToggleMinimized("A")
-!^`::ToggleMaximized("A")
+Initialize()
+return
+
+!Esc:: TransformAndCenter("A", , ,)
+!+Esc:: TransformAndCenter("A", Width, Height,)
+!^Esc:: TransformAndCenter("A", WidthMaximized, HeightMaximized,)
+!`:: WinClose "A"
+!+`:: ToggleMinimized("A")
+!^`:: ToggleMaximized("A")
