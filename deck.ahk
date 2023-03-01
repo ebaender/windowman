@@ -18,7 +18,7 @@ MinimizeAllExceptActive()
     Sleep(DeckDelay)
     WindowList := WinGetList(, , ,)
     LastActiveWindowID := WinGetID("A")
-    DebugMessage := "filtered windows`n`n"
+    if (DeckDebugOutput) DebugMessage := "filtered windows`n`n"
 
     for Window in WindowList
     {
@@ -37,19 +37,15 @@ MinimizeAllExceptActive()
             {
                 WinMinimize(Window)
             }
-            DebugMessage := DebugMessage MatchResult " / " WindowClass " / " WindowTitle "`n`n"
+            if (DeckDebugOutput) DebugMessage := DebugMessage MatchResult " / " WindowClass " / " WindowTitle "`n`n"
         }
     }
 
     global MinimizeLocked := true
 
-    if (WinExist(LastActiveWindowID))
-    {
-        DebugMessage := DebugMessage "`nlast active window`n`n" WinGetTitle(LastActiveWindowID)
-    }
-
     if (DeckDebugOutput)
     {
+        DebugMessage := DebugMessage "`nlast active window`n`n" WinGetTitle(LastActiveWindowID)
         MsgBox(DebugMessage)
     }
 }

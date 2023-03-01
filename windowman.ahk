@@ -16,4 +16,4 @@ return
 ~!Tab:: UnlockMinimize()
 ~Alt Up:: MinimizeAllExceptActive()
 
-~^s:: Reload
+; ~^s:: Reload
