@@ -1,19 +1,34 @@
 #Include magnet.ahk
 #Include deck.ahk
+#Include cloak.ahk
+
+; Initialization
 
 DetectHiddenWindows True
 
 InitializeDisplayValues()
+WaitForHidingTargets()
+
 return
+
+
+; Magnet hotkeys
 
 !Esc:: TransformAndCenter("A", , ,)
 !+Esc:: TransformAndCenter("A", Width, Height,)
 !^Esc:: TransformAndCenter("A", WidthMaximized, HeightMaximized,)
-!`:: WinClose "A"
-!+`:: ToggleMinimized("A")
+
+!`:: ToggleMinimized("A")
+!+`:: WinClose "A"
 !^`:: ToggleMaximized("A")
 
-~!Tab:: UnlockMinimize()
-~Alt Up:: MinimizeAllExceptActive()
+
+; Deck hotkeys
+
+; ~!Tab:: UnlockMinimize()
+; ~Alt Up:: MinimizeAllExceptActive()
+
+
+; Debugging hotkeys
 
 ; ~^s:: Reload
