@@ -1,6 +1,6 @@
 # windowman
 
-Scripts for Authotkey 2 to improve Microsofts's lackluster Window Manager experience. Still in development and not recommended to use in this state, but might be a useful reference for your own scripts.
+Scripts for Authotkey 2 to extend Microsofts's lackluster Window Manager experience. Still in development and not recommended to use in this state, but might be a useful reference for your own scripts.
 
 ## Features
 - Center and Resize windows to preconfigured dimensions on demand
